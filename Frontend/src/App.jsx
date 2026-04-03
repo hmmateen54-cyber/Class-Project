@@ -4,11 +4,11 @@ import Home from "./Themes/User/Home";
 import About from "./Themes/User/About";
 import Contact from "./Themes/User/Contact";
 import Orders from "./Themes/User/Orders";
-import { Fragment } from "react";
 import AdminLayout from "./components/AdminComponents/AdminLayout";
 import Dashboard from "./Themes/Admin/Dashboard";
 import AllProducts from "./Themes/Admin/AllProducts";
 import Addproducts from "./Themes/Admin/Addproducts";
+import AllOrders from "./Themes/Admin/AllOrders";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="dashboard" element={<Dashboard />}></Route>
         <Route path="addProducts" element={<Addproducts />}></Route>
         <Route path="allProducts" element={<AllProducts />}></Route>
+        <Route path="orders" element={<AllOrders />}></Route>
       </Route>
     </Routes>
   );
