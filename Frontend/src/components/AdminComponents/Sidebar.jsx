@@ -1,49 +1,32 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import {
-  LayoutDashboard,
-  ShoppingBag,
-  Users,
-  Package,
-  Settings,
-} from "lucide-react";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Sidebar() {
-  const menuItems = [
-    { name: "Dashboard", icon: <LayoutDashboard />, path: "/admin" },
-    { name: "Add Products", icon: <ShoppingBag />, path: "/admin/addProducts" },
-    { name: "All Products", icon: <Package />, path: "/admin/allProducts" },
-    { name: "Orders", icon: <Users />, path: "/admin/orders" },
-    { name: "Settings", icon: <Settings />, path: "/admin/settings" },
+  const Location = useLocation();
+  console.log(Location);
+  const navLinks = [
+    { name: "Dashboard", path: "/admin/dashboard" },
+    { name: "All Products", path: "/admin/allProducts" },
+    { name: "Add Products", path: "/admin/addProducts" },
+    { name: "Orders", path: "/admin/orders" },
+    { name: "Setting", path: "/admin/setting" },
   ];
-
   return (
-    <div className="h-full bg-gray-900 text-white flex flex-col">
-      {/* Logo */}
-      <div className="text-2xl font-bold p-4 border-b border-gray-700">
-        Admin Panel
-      </div>
-
-      {/* Menu */}
-      <div className="flex-1 p-2">
-        {menuItems.map((item, index) => (
-          <NavLink
-            to={item.path}
-            key={index}
-            className={({ isActive }) =>
-              `flex items-center gap-3 p-3 rounded-lg mb-2 transition-all 
-              ${isActive ? "bg-gray-700" : "hover:bg-gray-800"}`
-            }
-          >
-            {item.icon}
-            <span>{item.name}</span>
-          </NavLink>
-        ))}
-      </div>
-
-      {/* Footer */}
-      <div className="p-4 border-t border-gray-700 text-sm text-gray-400">
-        © 2026 Admin
+    <div className="h-full bg-gray-900 text-white p-4 flex flex-col">
+      <div className="logo">
+        <h1 className="text-2xl font-bold p-4 border-b border-gray-400">
+          Admin Panel
+        </h1>
+        <ul className="flex flex-col p-4">
+          {navLinks.map((items, index) => (
+            <li
+              key={index}
+              className={`py-4 cursor-pointer px-4 text-white text-xl rounded-xl space-y-2 hover:bg-gray-700 ${Location.pathname === items.path ? "bg-gray-700" : ""}`}
+            >
+              <NavLink to={items.path}>{items.name}</NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

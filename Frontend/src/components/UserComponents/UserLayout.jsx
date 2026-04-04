@@ -5,16 +5,9 @@ import Footer from "./Footer";
 
 function UserLayout() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navbar */}
+    <div>
       <Navbar />
-
-      {/* Main Content */}
-      <main className="flex-1 bg-gray-50 px-4 py-6">
-        <Outlet />
-      </main>
-
-      {/* Footer */}
+      <Outlet />
       <Footer />
     </div>
   );
