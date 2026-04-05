@@ -1,10 +1,13 @@
 import { HamburgerIcon } from "lucide-react";
 import React from "react";
 
-function Navbar() {
+function Navbar({ setOpen }) {
   return (
     <div className="flex justify-center items-center h-full">
-      <div className="flex md:hidden hamburger cursor-pointer">
+      <div
+        className="flex md:hidden hamburger cursor-pointer"
+        onClick={() => setOpen(true)}
+      >
         <HamburgerIcon />
       </div>
       <div className="flex justify-around absolute right-4">

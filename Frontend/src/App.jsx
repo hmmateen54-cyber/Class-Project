@@ -9,6 +9,9 @@ import Dashboard from "./Themes/Admin/Dashboard";
 import AllProducts from "./Themes/Admin/AllProducts";
 import Addproducts from "./Themes/Admin/Addproducts";
 import AllOrders from "./Themes/Admin/AllOrders";
+import AuthLayout from "./components/AuthComponents/AuthLayout";
+import Login from "./Themes/Auth/Login";
+import Register from "./Themes/Auth/Register";
 
 function App() {
   return (
@@ -24,6 +27,10 @@ function App() {
         <Route path="addProducts" element={<Addproducts />}></Route>
         <Route path="allProducts" element={<AllProducts />}></Route>
         <Route path="orders" element={<AllOrders />}></Route>
+      </Route>
+      <Route path="/auth" element={<AuthLayout />}>
+        <Route path="login" element={<Login />}></Route>
+        <Route path="signup" element={<Register />}></Route>
       </Route>
     </Routes>
   );
